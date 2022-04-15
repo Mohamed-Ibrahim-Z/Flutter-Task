@@ -29,7 +29,34 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
 
       ),
+      body: Padding(
+        padding: const EdgeInsets.only(
+          top: 250
+        ),
+        child: Container(
+          width: double.infinity,
 
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                      50
+                  ),
+                ),
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: Image.asset(
+                  'assets/MyPhoto.jpg',
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
+              ),
+
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
