@@ -1,0 +1,534 @@
+Index: lib/home_screen.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/home_screen.dart b/lib/views/home_screen.dart
+rename from lib/home_screen.dart
+rename to lib/views/home_screen.dart
+--- a/lib/home_screen.dart	(revision 93ab79b7092a62bd05fb8037ec18943570cf995a)
++++ b/lib/views/home_screen.dart	(date 1650215577054)
+@@ -1,229 +1,121 @@
+-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_const_literals_to_create_immutables
+-
+ import 'package:flutter/material.dart';
++import 'package:task/componants/Txt.dart';
++import 'package:task/componants/icon_and_txt.dart';
+ 
+ class HomeScreen extends StatelessWidget {
++  const HomeScreen({Key? key}) : super(key: key);
+   @override
+   Widget build(BuildContext context) {
+     return Scaffold(
+       extendBodyBehindAppBar: true,
+       appBar: AppBar(
+-          foregroundColor: Colors.black,
++        backgroundColor: Colors.transparent,
++        foregroundColor: Colors.black,
+           elevation: 0,
+-          leading: Icon(Icons.menu),
++          leading: const Icon(Icons.menu),
+           actions: [
+-        IconButton(
+-          onPressed: () {},
+-          icon: Icon(
+-            Icons.search,
+-          ),
+-        ),
+-        IconButton(
+-          onPressed: () {},
+-          icon: Icon(
+-            Icons.notifications,
+-          ),
+-        ),
++        IconButton(onPressed: () {}, icon: const Icon(Icons.search,),),
++        IconButton(onPressed: () {}, icon: const Icon(Icons.notifications,),),
+          ],
+-        backgroundColor: Colors.transparent,
+-
+       ),
+       body: Padding(
+-        padding: const EdgeInsets.only(
+-          top: 220
+-        ),
++        padding: const EdgeInsets.only(top: 220),
+         child: SizedBox(
+           width: double.infinity,
+-          child: Column(
+-            children: [
+-              Container(
+-
+-                decoration: BoxDecoration(
+-                  borderRadius: BorderRadius.circular(
+-                      50
++          child: Padding(
++            padding: const EdgeInsets.all(15.0),
++            child: Column(
++              children: [
++                const CircleAvatar(
++                  radius: 40,
++                  backgroundImage: NetworkImage(
++                    'https://raw.githubusercontent.com/Mohamed-Ibrahim-Z/Flutter-Task/main/assets/MyPhoto.jpg',
+                   ),
+                 ),
+-                clipBehavior: Clip.antiAliasWithSaveLayer,
+-                child: Image.asset(
+-                  'assets/MyPhoto.jpg',
+-                  width: 100,
+-                  height: 100,
+-                  fit: BoxFit.cover,
+-                ),
+-              ),
+-              SizedBox(height: 15,),
+-              Text(
+-                  'Mohamed Ibrahim',
+-                style: TextStyle(
+-                  fontStyle: FontStyle.italic,
+-                  fontSize: 25,
+-                ),
+-
+-              ),
+-              SizedBox(height: 15,),
+-              Text(
+-                'Im not intrested in anything',
+-              ),
+-              SizedBox(height: 15,),
+-              Row(
+-                mainAxisAlignment: MainAxisAlignment.center,
+-                children: [
+-                  Column(
+-                    children: [
+-                      Text(
+-
+-                        '540',
+-                        style: TextStyle(
+-                          color: Colors.green,
+-                          fontSize: 30,
+-                        ),
++                const SizedBox(height: 15,),
++                Txt('Mohamed Ibrahim', FontStyle.italic, 25,Colors.black),
++                const SizedBox(height: 15,),
++                Txt('Im not intrested in anything',FontStyle.normal,12,Colors.black),
++                const SizedBox(height: 15,),
++                Padding(
++                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
++                  child: Row(
++                    mainAxisAlignment: MainAxisAlignment.center,
++                    children: [
++                      Expanded(
++                        child:
++                          Column(
++                            children: [
++                              Txt('540', FontStyle.normal,30,Colors.green),
++                              Txt('Rating', FontStyle.normal,15,Colors.black),
++                            ],
++                          ),
+                       ),
+-                      Text(
+-                        'Rating',
+-                        style: TextStyle(
+-
+-                          fontSize: 15,
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                  SizedBox(width: 35,),
+-                  Column(
+-                    children: [
+-                      Text(
+-
+-                        '700',
+-                        style: TextStyle(
+-                          fontSize: 30,
++                      Expanded(
++                        child: Column(
++                          children: [
++                            Txt('700', FontStyle.normal,30,Colors.black),
++                            Txt('Followers', FontStyle.normal,15,Colors.black),
++                          ],
+                         ),
+                       ),
+-                      Text(
+-                        'Followers',
+-                        style: TextStyle(
+-
+-                          fontSize: 15,
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                  SizedBox(width: 35,),
+-                  Column(
+-                    children: [
+-                      Text(
+-                        '142',
+-                        style: TextStyle(
+-                          fontSize: 30,
+-                        ),
+-                      ),
+-                      Text(
+-                        'Posts',
+-                        style: TextStyle(
+-                          fontSize: 15,
++                      Expanded(
++                        child: Column(
++                          children: [
++                            Txt('142', FontStyle.normal,30,Colors.black),
++                            Txt('Posts', FontStyle.normal,15,Colors.black),
++                          ],
+                         ),
+                       ),
+                     ],
+                   ),
+-                ],
+-              ),
+-              SizedBox(height: 15,),
+-              SizedBox(
+-                width: 200,
+-                child: ElevatedButton(
+-                  onPressed: () {},
+-                  child: Text(
+-                      'Subsecribe'
+-                  ),
+-                  style: ButtonStyle(
+-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+-                      RoundedRectangleBorder(
+-                        borderRadius: BorderRadius.circular(20)
+-                      )
+-                    ),
+-                  ),
+-                ),
+-              ),
+-              SizedBox(height: 15,),
+-              Row(
+-                  mainAxisAlignment: MainAxisAlignment.start,
+-                  crossAxisAlignment: CrossAxisAlignment.start,
+-                  children: [
+-                    Padding(
+-                      padding: const EdgeInsets.only(
+-                        left: 20,
++                ),
++                const SizedBox(height: 15,),
++                SizedBox(
++                  width: double.infinity,
++                  child: ElevatedButton.icon(
++                      onPressed: () {},
++                      icon: const Icon(Icons.add,),
++                      label: Row(
++                        mainAxisAlignment: MainAxisAlignment.center,
++                        children: [
++                          Txt('Subscribe',FontStyle.normal,18,Colors.white),
++                        ],
++                      ),
++                      style: ElevatedButton.styleFrom(
++                          primary: Colors.blueAccent
+                       ),
+-                      child: Icon(
++                  ),
++                ),
++                const SizedBox(height: 15,),
++                Column(
++                    children: [
++                      IconAndTxt(
+                         Icons.location_on,
+-                        color: Colors.purple,
++                        Colors.purple,
++                        Txt('Lives in Cairo',FontStyle.normal,18,Colors.black),
++                        20,
+                       ),
+-
+-                    ),
+-                    SizedBox(width: 15,),
+-                    Text(
+-                      'Lives in Cairo',
+-                      style: TextStyle(
+-                        fontSize: 15
+-                      ),
+-                    ),
+-                  ],
+-
+-
+-              ),
+-              SizedBox(height: 15,),
+-              Row(
+-                mainAxisAlignment: MainAxisAlignment.start,
+-                crossAxisAlignment: CrossAxisAlignment.start,
+-                children: [
+-                  Padding(
+-                    padding: const EdgeInsets.only(
+-                      left: 20,
+-                    ),
+-                    child: Icon(
+-                      Icons.work,
+-                      color: Colors.orange,
+-                    ),
+-
+-                  ),
+-                  SizedBox(width: 15,),
+-                  Text(
+-                    'Works as Member at OSC',
+-                    style: TextStyle(
+-                        fontSize: 15
+-                    ),
+-                  ),
+-                ],
+-
+-
+-              ),
+-              SizedBox(height: 15,),
+-              Row(
+-                mainAxisAlignment: MainAxisAlignment.start,
+-                crossAxisAlignment: CrossAxisAlignment.start,
+-                children: [
+-                  Padding(
+-                    padding: const EdgeInsets.only(
+-                      left: 20,
+-                    ),
+-                    child: Icon(
+-                      Icons.star,
+-                      color: Colors.blue,
+-                    ),
+-
+-                  ),
+-                  SizedBox(width: 15,),
+-                  Text(
+-                    'Skills Flutter, C++, Unity & other',
+-                    style: TextStyle(
+-                        fontSize: 15
+-                    ),
+-                  ),
+-                ],
+-
+-
+-              ),
+-            ],
++                      const SizedBox(height: 15,),
++                      IconAndTxt(
++                                  Icons.work,
++                                  Colors.orange,
++                                  Txt('Works as Member at OSC',FontStyle.normal,18,Colors.black),
++                                  20,
++                              ),
++                      const SizedBox(height: 15,),
++                      IconAndTxt(
++                        Icons.star,
++                        Colors.blue,
++                        Txt('Skills Flutter, C++, Unity & other',FontStyle.normal,18,Colors.black),
++                        20,
++                      ),
++                    ],
++                  ),
++              ],
++            ),
+           ),
+         ),
+-
+       ),
+     );
+   }
+Index: lib/main.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// ignore_for_file: non_constant_identifier_names, use_key_in_widget_constructors, use_function_type_syntax_for_parameters\r\n\r\nimport 'package:flutter/material.dart';\r\nimport 'package:task/home_screen.dart';\r\n\r\nvoid main() {\r\n  runApp(MyApp());\r\n}\r\n\r\nclass MyApp extends StatelessWidget {\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return MaterialApp(\r\n      debugShowCheckedModeBanner: false,\r\n      home: HomeScreen(),\r\n    );\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/main.dart b/lib/main.dart
+--- a/lib/main.dart	(revision 93ab79b7092a62bd05fb8037ec18943570cf995a)
++++ b/lib/main.dart	(date 1650148695221)
+@@ -1,7 +1,8 @@
+ // ignore_for_file: non_constant_identifier_names, use_key_in_widget_constructors, use_function_type_syntax_for_parameters
+ 
+ import 'package:flutter/material.dart';
+-import 'package:task/home_screen.dart';
++import 'package:task/src/root_app.dart';
++import 'package:task/views/home_screen.dart';
+ 
+ void main() {
+   runApp(MyApp());
+@@ -10,9 +11,6 @@
+ class MyApp extends StatelessWidget {
+   @override
+   Widget build(BuildContext context) {
+-    return MaterialApp(
+-      debugShowCheckedModeBanner: false,
+-      home: HomeScreen(),
+-    );
++    return RootApp();
+   }
+ }
+Index: lib/componants/txt.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/componants/txt.dart b/lib/componants/txt.dart
+new file mode 100644
+--- /dev/null	(date 1650153472639)
++++ b/lib/componants/txt.dart	(date 1650153472639)
+@@ -0,0 +1,26 @@
++import 'package:flutter/material.dart';
++
++class Txt extends StatelessWidget {
++  late String text;
++  late FontStyle font;
++  late double size;
++  late Color color;
++  Txt(this.text,this.font,this.size,this.color, {Key? key} ) : super(key: key);
++  Txt.namedConst(Txt txt, {Key? key}) : super(key: key){
++     text = txt.text;
++     font = txt.font;
++     size= txt.size;
++     color= txt.color;
++  }
++  @override
++  Widget build(BuildContext context) {
++    return Text(
++      text,
++      style: TextStyle(
++        fontSize: size,
++        fontStyle: font,
++        color: color,
++      ),
++    );
++  }
++}
+Index: lib/componants/icon_and_txt.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/componants/icon_and_txt.dart b/lib/componants/icon_and_txt.dart
+new file mode 100644
+--- /dev/null	(date 1650153992463)
++++ b/lib/componants/icon_and_txt.dart	(date 1650153992463)
+@@ -0,0 +1,20 @@
++import 'package:flutter/cupertino.dart';
++import 'package:task/componants/Txt.dart';
++
++class IconAndTxt extends StatelessWidget {
++  IconData icon;
++  Color color;
++  Txt txt;
++  double boxSize;
++  IconAndTxt(this.icon,this.color,this.txt,this.boxSize, {Key? key}) : super(key: key);
++  @override
++  Widget build(BuildContext context) {
++    return Row(
++      children: [
++        Icon(icon,color: color),
++        SizedBox(width: boxSize),
++        txt,
++      ],
++    );
++  }
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"NONE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"db56ea1f-9753-4430-aec9-59f334d115f3\" name=\"Default Changelist\" comment=\"Add My photo\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/lib/home_screen.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/home_screen.dart\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"27lOOBfGbWZnAhQnmKBHCoONySR\" />\r\n  <component name=\"ProjectView\">\r\n    <navigator currentView=\"ProjectPane\" proportions=\"\" version=\"1\" />\r\n    <panes>\r\n      <pane id=\"ProjectPane\">\r\n        <option name=\"show-excluded-files\" value=\"false\" />\r\n      </pane>\r\n    </panes>\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.cidr.known.project.marker\" value=\"true\" />\r\n    <property name=\"cidr.known.project.marker\" value=\"true\" />\r\n    <property name=\"dart.analysis.tool.window.force.activate\" value=\"true\" />\r\n    <property name=\"dart.analysis.tool.window.visible\" value=\"false\" />\r\n    <property name=\"io.flutter.reload.alreadyRun\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.keymap\" />\r\n    <property name=\"show.migrate.to.gradle.popup\" value=\"false\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"db56ea1f-9753-4430-aec9-59f334d115f3\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1649891171950</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1649891171950</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Finishing the AppBar\">\r\n      <created>1649899805037</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649899805037</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Add My photo\">\r\n      <created>1649980826187</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1649980826187</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"ToolWindowManager\">\r\n    <editor active=\"true\" />\r\n    <layout>\r\n      <window_info id=\"Project\" active=\"false\" anchor=\"left\" auto_hide=\"false\" internal_type=\"DOCKED\" type=\"DOCKED\" visible=\"true\" show_stripe_button=\"true\" weight=\"0.25\" sideWeight=\"0.5\" order=\"0\" side_tool=\"false\" content_ui=\"combo\" />\r\n    </layout>\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Finishing the AppBar\" />\r\n    <MESSAGE value=\"Add My photo\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Add My photo\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 93ab79b7092a62bd05fb8037ec18943570cf995a)
++++ b/.idea/workspace.xml	(date 1650162781215)
+@@ -1,18 +1,32 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AndroidLogFilters">
++    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
++  </component>
+   <component name="AutoImportSettings">
+     <option name="autoReloadType" value="NONE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="db56ea1f-9753-4430-aec9-59f334d115f3" name="Default Changelist" comment="Add My photo">
++    <list default="true" id="db56ea1f-9753-4430-aec9-59f334d115f3" name="Default Changelist" comment="Adding Button, Icons, Some Texts and ending the task">
++      <change afterPath="$PROJECT_DIR$/lib/componants/icon_and_txt.dart" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/lib/componants/txt.dart" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/home_screen.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/lib/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen.dart" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++        <option value="Dart File" />
++      </list>
++    </option>
++  </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+@@ -36,8 +50,13 @@
+     <property name="dart.analysis.tool.window.visible" value="false" />
+     <property name="io.flutter.reload.alreadyRun" value="true" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
++    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+     <property name="show.migrate.to.gradle.popup" value="false" />
++  </component>
++  <component name="RecentsManager">
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="H:\OSC\FLUTTER\task\Flutter-Task\lib\views" />
++    </key>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -62,7 +81,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1649980826187</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Adding Button, Icons, Some Texts and ending the task">
++      <created>1649985950840</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1649985950840</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="ToolWindowManager">
+@@ -71,6 +97,16 @@
+       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+     </layout>
+   </component>
++  <component name="Vcs.Log.History.Properties">
++    <option name="COLUMN_ID_ORDER">
++      <list>
++        <option value="Default.Root" />
++        <option value="Default.Author" />
++        <option value="Default.Date" />
++        <option value="Default.Subject" />
++      </list>
++    </option>
++  </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+       <map>
+@@ -81,10 +117,12 @@
+         </entry>
+       </map>
+     </option>
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Finishing the AppBar" />
+     <MESSAGE value="Add My photo" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Add My photo" />
++    <MESSAGE value="Adding Button, Icons, Some Texts and ending the task" />
++    <option name="LAST_COMMIT_MESSAGE" value="Adding Button, Icons, Some Texts and ending the task" />
+   </component>
+ </project>
+\ No newline at end of file

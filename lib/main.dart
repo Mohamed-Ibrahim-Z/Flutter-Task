@@ -1,7 +1,8 @@
 // ignore_for_file: non_constant_identifier_names, use_key_in_widget_constructors, use_function_type_syntax_for_parameters
 
 import 'package:flutter/material.dart';
-import 'package:task/home_screen.dart';
+import 'package:task/src/root_app.dart';
+import 'package:task/views/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: RootApp(),
     );
   }
 }
