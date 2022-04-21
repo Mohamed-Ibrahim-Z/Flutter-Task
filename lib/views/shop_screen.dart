@@ -9,7 +9,7 @@ import 'package:task/components/products_card.dart';
 
 import '../components/search.dart';
 class ShopScreen extends StatelessWidget {
-  const ShopScreen({Key? key}) : super(key: key);
+   ShopScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,13 +78,13 @@ class ShopScreen extends StatelessWidget {
                 height: 110,
                 child: ListView(
                   children: [
-                    CategoryModel(image: 'assets/Fruits.png', text: 'Fruits'),
-                    SizedBox(width: 20,),
+                    CategoryModel(image: 'assets/Fruits.png', text: 'Fruits',),
+                    const SizedBox(width: 20,),
                     CategoryModel(image: 'assets/juice.png', text: 'Juice'),
 
-                    SizedBox(width: 20,),
+                    const SizedBox(width: 20,),
                     CategoryModel(image: 'assets/Beard.png', text: 'Bakery'),
-                    SizedBox(width: 20,),
+                    const SizedBox(width: 20,),
                     CategoryModel(image: 'assets/vegetables.png', text: 'Vegetables'),
                   ],
                   scrollDirection: Axis.horizontal,

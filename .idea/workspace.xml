@@ -7,23 +7,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db56ea1f-9753-4430-aec9-59f334d115f3" name="Default Changelist" comment="clean up the code">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_17_2022_7_13_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_17_2022_7_13_PM__Default_Changelist_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/MyPhoto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/button_icon.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/categories_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/products_card.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/components/search.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/root_app.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/views/shop_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+    <list default="true" id="db56ea1f-9753-4430-aec9-59f334d115f3" name="Default Changelist" comment="On click Color for the category">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/categories_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/categories_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/root_app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/root_app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/views/shop_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/views/shop_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649980826187</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Shop Screen">
+      <created>1650503694725</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650503694725</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -129,6 +124,8 @@
     <MESSAGE value="Finishing the AppBar" />
     <MESSAGE value="Add My photo" />
     <MESSAGE value="clean up the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up the code" />
+    <MESSAGE value="Shop Screen" />
+    <MESSAGE value="On click Color for the category" />
+    <option name="LAST_COMMIT_MESSAGE" value="On click Color for the category" />
   </component>
 </project>
