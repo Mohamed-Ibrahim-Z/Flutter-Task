@@ -57,7 +57,7 @@ class _CategoryModelState extends State<CategoryModel> {
         Text(
           widget.text!,
           style: const TextStyle(
-            fontWeight: FontWeight.bold,
+            color: Colors.grey,
           ),
         ),
       ],

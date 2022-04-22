@@ -6,7 +6,9 @@ import 'package:flutter/rendering.dart';
 import 'package:task/components/button_icon.dart';
 import 'package:task/components/categories_model.dart';
 import 'package:task/components/products_card.dart';
+import 'package:task/views/you_pressed_screen.dart';
 
+import '../components/home_screen_app_bar.dart';
 import '../components/search.dart';
 class ShopScreen extends StatelessWidget {
    ShopScreen({Key? key}) : super(key: key);
@@ -15,43 +17,7 @@ class ShopScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: const Icon(
-          Icons.menu,
-          color: Colors.blueGrey,
-        ),
-        title: const Center(
-          child: Text(
-            'EDEKA',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.blueAccent
-            ),
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ButtonIcon(
-                myIcon: const Icon(
-                  Icons.next_plan_outlined,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ButtonIcon(
-                myIcon: const Icon(
-                  Icons.add,
-                )),
-          ),
-
-
-        ],
-      ),
+      appBar: const HomeScreenAppBar(),
       body: Padding(
         padding: const EdgeInsets.only(
           top: 130,
@@ -67,7 +33,7 @@ class ShopScreen extends StatelessWidget {
                   const SizedBox(width: 30,),
                   ButtonIcon(
                     myIcon: const Icon(
-                      Icons.settings,
+                      Icons.filter_alt,
                       color: Colors.grey,
                     ),
                   ),
@@ -78,39 +44,41 @@ class ShopScreen extends StatelessWidget {
                 height: 110,
                 child: ListView(
                   children: [
-                    CategoryModel(image: 'assets/Fruits.png', text: 'Fruits',),
+                    CategoryModel(image: 'assets/Fruits.png', text: 'Fruits',color: Colors.green,),
                     const SizedBox(width: 20,),
                     CategoryModel(image: 'assets/juice.png', text: 'Juice'),
-
                     const SizedBox(width: 20,),
                     CategoryModel(image: 'assets/Beard.png', text: 'Bakery'),
                     const SizedBox(width: 20,),
                     CategoryModel(image: 'assets/vegetables.png', text: 'Vegetables'),
+                    const SizedBox(width: 20,),
+                    CategoryModel(image: 'assets/juice.png', text: 'Juice'),
+
                   ],
                   scrollDirection: Axis.horizontal,
                 ),
               ),
               GridView.count(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                padding: EdgeInsets.only(top:10),
+                padding: const EdgeInsets.only(top:10),
                 childAspectRatio: 0.683,
                 mainAxisSpacing: 20,
                 crossAxisSpacing: 20,
                 crossAxisCount: 2,
                 children: [
                   ProductsCard(
-                      image: 'assets/Lemon.jpg', nameText: 'Lemon', description: 'Bergamo Italy', price: '1.20'),
+                      image: 'assets/Lemon.jpg', nameText: 'Lemon', description: 'Bergamo Italy', price: '1.20',context: context,pressed: 'Lemon'),
                   ProductsCard(
-                      image: 'assets/Banana.jpg', nameText: 'Banana', description: 'Casttier Italiano', price: '2.05'),
+                      image: 'assets/Banana.jpg', nameText: 'Banana', description: 'Casttier Italiano', price: '2.05',context: context,pressed: 'Banana'),
                   ProductsCard(
-                      image: 'assets/Grape.png', nameText: 'Grape', description: 'Casttier Italiano', price: '3.15'),
+                      image: 'assets/Grape.png', nameText: 'Grape', description: 'Casttier Italiano', price: '3.15',context: context,pressed: 'Grape'),
                   ProductsCard(
-                      image: 'assets/Mango.jpg', nameText: 'Mango', description: 'Ewyse', price: '5'),
+                      image: 'assets/Mango.jpg', nameText: 'Mango', description: 'Ewyse', price: '5',context: context,pressed: 'Mango'),
                   ProductsCard(
-                      image: 'assets/Orange.png', nameText: 'Orange', description: 'Bergamo Italy', price: '2.1'),
+                      image: 'assets/Orange.png', nameText: 'Orange', description: 'Bergamo Italy', price: '2.1',context: context,pressed: 'Orange'),
                   ProductsCard(
-                      image: 'assets/Pepper.png', nameText: 'Pepper', description: 'Casttier Italiano', price: '4'),
+                      image: 'assets/Pepper.png', nameText: 'Pepper', description: 'Casttier Italiano', price: '4',context: context,pressed: 'Pepper'),
 
                 ],
               ),

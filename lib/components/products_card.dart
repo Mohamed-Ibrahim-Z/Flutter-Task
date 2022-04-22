@@ -1,11 +1,16 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../views/you_pressed_screen.dart';
 
 Widget ProductsCard({
   required String image,
   required String nameText,
   required String description,
   required String price,
+  required BuildContext context,
+  required String pressed,
   bool heart = false,
 }) =>
     Card(
@@ -62,7 +67,7 @@ Widget ProductsCard({
                   ),
                   Text(
                     description,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.grey,
                     ),
                   ),
@@ -98,7 +103,7 @@ Widget ProductsCard({
                           color: Colors.green,
                         ),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed:  (){Navigator.push(context, MaterialPageRoute(builder: (context) => YouPressedScreen(pressed: pressed)));},
                           icon: const Icon(
                             Icons.add,
                             color: Colors.white,
